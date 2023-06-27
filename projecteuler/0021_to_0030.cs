@@ -46,6 +46,33 @@ public partial class Program
 	}
 	public static void Exercise0023()
 	{
+		List<long> divisors;
+		List<long> abundants = new List<long>() { };
+		List<long> result = new List<long>() { };
+		long sum;
+		for (int i = 1; i <= 28123; i++)
+        {
+			divisors = getDivisors(i);
+			divisors.Remove(i);
+			sum = divisors.Sum();
+            if (sum > i) {
+				abundants.Add(i);
+			}
+        }
+		for(int i = 0; i < abundants.Count; i++)
+        {
+			for (int j = i; j < abundants.Count; j++)
+			{
+				if(abundants[i] + abundants[j] <= 28123)
+					result.Add(abundants[i]+ abundants[j]);                
+			}
+		}
+		result = result.Distinct().ToList();
+		sum = 0;
+		for (int i = 1; i <= 28123; i++)
+			if (!result.Contains(i))
+				sum += i;
+		Console.WriteLine("value found: " + sum.ToString());
 	}
 	public static void Exercise0024()
 	{

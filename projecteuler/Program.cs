@@ -5,7 +5,7 @@ public partial class Program
 {
 	public static void Main()
 	{
-        string number = "0022";
+        string number = "0023";
 
         Type tipo = typeof(Program);
         MethodInfo metodo = tipo.GetMethod("Exercise" + number);
